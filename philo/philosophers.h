@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 22:55:45 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/09/03 12:50:54 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/09/03 13:19:18 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,13 @@
 /*# define message etc */
 
 # define ERROR_MSG			"Error ->"
-# define ERROR_USAGE		"Usage: ./philo"
-# define ERROR_ARGC_PHILO	"[number_of_philosophers] [time_to_die]"
-# define ERROR_ARGC_TIME	"[time_to_eat] [time_to_sleep]"
-# define ERROR_ARGC_TIMES	"(number_of_times_each_philosopher_must_eat)"
+# define USAGE				"Usage :"
+# define PROGRAM_NAME		"./philo"
+# define ARGC_NBR_PHILO		"[number_of_philosophers]"
+# define ARGC_DIE_TIME		"[time_to_die]"
+# define ARGC_EAT_TIME		"[time_to_eat]"
+# define ARGC_SLEEP_TIME	"[time_to_sleep]"
+# define ARGC_TIMES_EAT		"(number_of_times_each_philosopher_must_eat)"
 # define ERROR_NBR_PHILO	"[number_of_philosophers] should be > 0"
 # define ERROR_NBR_EAT_TIME	"(nbr_of_times_philo_must_eat) should be > 0"
 # define ERROR_MALLOC_FORK	"Malloc pthread_mutex_t *forks fail !"
