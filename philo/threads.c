@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 14:27:05 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/09/03 12:58:41 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/09/03 14:18:40 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	start_philo_threads(t_philosophers *philo, t_information *info)
 		philo[index].last_eat = get_time_in_ms();
 		if (pthread_create(&(philo[index].thread),
 				NULL, philo_routine, &(philo[index])))
-			print_error_msg(ERROR_START_PHILO);	// add define for proper msg
+			print_error_msg(ERROR_START_PHILO);
 		index++;
 	}
 	check_dead_or_finish(philo, info);

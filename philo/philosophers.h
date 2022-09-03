@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 22:55:45 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/09/03 13:19:18 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/09/03 14:19:20 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <pthread.h>
 # include <sys/time.h>
 
-/*color*/
+/*Color*/
 
 # define COLOR_BLACK			"\033[0;30m"
 # define COLOR_RED				"\033[0;31m"
@@ -40,7 +40,7 @@
 # define COLOR_WHITE			"\033[1;37m"
 # define NO_COLOR				"\033[0m"
 
-/*# define message etc */
+/*Define message etc*/
 
 # define ERROR_MSG			"Error ->"
 # define USAGE				"Usage :"
@@ -50,25 +50,18 @@
 # define ARGC_EAT_TIME		"[time_to_eat]"
 # define ARGC_SLEEP_TIME	"[time_to_sleep]"
 # define ARGC_TIMES_EAT		"(number_of_times_each_philosopher_must_eat)"
-# define ERROR_NBR_PHILO	"[number_of_philosophers] should be > 0"
-# define ERROR_NBR_EAT_TIME	"(nbr_of_times_philo_must_eat) should be > 0"
-# define ERROR_MALLOC_FORK	"Malloc pthread_mutex_t *forks fail !"
-# define ERROR_INIT_ARGC	"Argument initialisation fail !"
-# define ERROR_INIT_PHILO	"Philosophers initialisation fail !"
-# define ERROR_START_PHILO	"Philosophers start fail !"
+# define ERROR_NBR_INF_0	"should be > 0"
+# define ERROR_MUTEX_LOCK	"pthread_mutex_init (info->lock) fail !"
+# define ERROR_MALLOC_FORK	"malloc pthread_mutex_t *forks fail !"
+# define ERROR_MUTEX_FORK	"pthread_mutex_init (info->fork) fail !"
+# define ERROR_MALLOC_PHILO	"malloc philosophers fail !"
+# define ERROR_START_PHILO	"pthread_create Philosophers fail !"
 # define ERROR_NEGATIVE_ARG	"Negative number found in argument !"
 # define TAKE_FORK			"has taken a fork"
 # define EAT				"is eating"
 # define SLEEP				"is sleeping"
 # define THINK				"is thinking"
 # define DIE				"died"
-
-// true false enum for loop if etc
-typedef enum e_bool
-{
-	TRUE = 1,
-	FALSE = 0
-}	t_bool;
 
 typedef struct s_philosophers
 {
@@ -113,9 +106,12 @@ void		free_all_thread(t_philosophers *philo, t_information *info);
 
 //	utilities.c
 int			ft_atoi(char *str);
-void		print_error_msg(char *message);
+int			ft_strcmp(char *s1, char *s2);
 long long	get_time_in_ms(void);
 void		pause_time(t_information *info, long long wait_time);
+
+//	help.c
+void		print_error_msg(char *message);
 void		print_usage(void);
 
 #endif

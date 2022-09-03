@@ -6,7 +6,7 @@
 #    By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/24 15:32:24 by gcomlan           #+#    #+#              #
-#    Updated: 2022/09/02 16:24:10 by gcomlan          ###   ########.fr        #
+#    Updated: 2022/09/03 13:58:37 by gcomlan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,11 @@ RM			=	rm -f
 # ------------------------------ SRC ------------------------------
 
 SRC			=		main.c \
+					help.c	\
 					actions.c \
-					initialisation.c \
 					threads.c \
-					utilities.c
+					utilities.c \
+					initialisation.c
 
 OBJ := $(SRC:.c=.o)
 

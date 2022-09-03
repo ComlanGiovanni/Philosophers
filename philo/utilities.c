@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 22:55:53 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/09/03 13:19:47 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/09/03 13:57:34 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,14 @@ int	ft_atoi(char *str)
 	return (result * sign);
 }
 
-void	print_error_msg(char *message)
+int	ft_strcmp(char *s1, char *s2)
 {
-	printf("❌ %s ", ERROR_MSG);
-	printf("%s", COLOR_RED);
-	printf("%s\n", message);
-	printf("%s", NO_COLOR);
-	exit(EXIT_FAILURE);
+	int	idx;
+
+	idx = 0;
+	while ((s1[idx] == s2[idx]) && (s1[idx] != '\0' && s2[idx] != '\0'))
+		idx++;
+	return (s1[idx] - s2[idx]);
 }
 
 long long	get_time_in_ms(void)
@@ -67,28 +68,4 @@ void	pause_time(t_information *info, long long wait_time)
 			break ;
 		usleep(10); // check
 	}
-}
-
-void	print_usage(void)
-{
-	printf("📚  %s", USAGE);
-	printf("%s", COLOR_BLUE);
-	printf(" %s", PROGRAM_NAME);
-	printf("%s", NO_COLOR);
-	printf("%s", COLOR_LIGHT_CYAN);
-	printf(" %s", ARGC_NBR_PHILO);
-	printf("%s", NO_COLOR);
-	printf("%s", COLOR_PURPLE);
-	printf(" %s", ARGC_DIE_TIME);
-	printf("%s", NO_COLOR);
-	printf("%s", COLOR_YELLOW);
-	printf(" %s", ARGC_EAT_TIME);
-	printf("%s", NO_COLOR);
-	printf("%s", COLOR_GREEN);
-	printf(" %s", ARGC_SLEEP_TIME);
-	printf("%s", NO_COLOR);
-	printf("%s", COLOR_DARK_GRAY);
-	printf(" %s\n", ARGC_TIMES_EAT);
-	printf("%s", NO_COLOR);
-	exit(EXIT_FAILURE);
 }
