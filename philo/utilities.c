@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 22:55:53 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/09/03 13:57:34 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/09/03 15:39:49 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,21 @@ long long	get_time_in_ms(void)
 {
 	struct timeval	current_time;
 
+	//check
 	if (gettimeofday(&current_time, NULL) == -1)
 		return (-1);
 	return ((current_time.tv_sec * 1000) + (current_time.tv_usec / 1000));
 }
+
+/*
+long long	current_time(t_philosophers *philo)
+{
+	long long	time;
+
+	time = get_time_in_ms() - philo->info->creation_time;
+	return (time);
+}
+*/
 
 void	pause_time(t_information *info, long long wait_time)
 {

@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 14:27:05 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/09/03 14:25:59 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/09/03 15:18:08 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	*philo_routine(void *data)
 		}
 		philo_sleep_and_think(philo, info);
 	}
-	return ((void *)0);
+	return ((void *)0); // NULL
 }
 
 void	check_dead_or_finish(t_philosophers *philo, t_information *info)

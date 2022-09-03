@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 22:55:55 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/09/03 12:06:44 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/09/03 14:30:34 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ int	main(int argc, char **argv)
 	init_mutex_forks(&info);
 	init_philo_info(&philo, &info);
 	start_philo_threads(philo, &info);
-	return (0);
+	return (EXIT_SUCCESS);
 }
