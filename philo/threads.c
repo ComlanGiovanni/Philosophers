@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 14:27:05 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/09/03 14:18:40 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/09/03 14:25:59 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	*philo_routine(void *data)
 
 	philo = data;
 	info = philo->info;
-
 /*
 	if ((philo->id % 2) != 0)
 		usleep(2);
@@ -49,7 +48,7 @@ void	*philo_routine(void *data)
 	if (philo->id % 2)
 		usleep(1000); // same
 	else
-		usleep(500);	// check for 410
+		usleep(500); // same
 	while (!info->finish)
 	{
 		philo_eat_with_two_fork(philo, info);

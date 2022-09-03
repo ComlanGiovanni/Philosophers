@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 14:43:27 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/09/03 12:57:39 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/09/03 14:25:22 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	philo_eat_with_two_fork(t_philosophers *philo, t_information *info)
 	}
 	pthread_mutex_unlock(&(info->forks[philo->left]));
 }
-
 
 void	philo_display(t_information *info, int id, char *message)	//name
 {
