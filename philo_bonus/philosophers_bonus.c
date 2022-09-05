@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 23:17:25 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/09/03 15:30:47 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/09/05 14:56:17 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	start_philo(t_information *info)
 	idx = 0;
 	philo = ft_calloc(info->nbr_philo, sizeof(t_philosophers));
 	if (!philo)
-		// print error call fail define
+		print_error_msg(ERROR_CALLOC_PHILO);
 	info->creation_time = get_time_in_ms();
 	while (idx < info->nbr_philo)
 	{
@@ -53,7 +53,7 @@ void	philo_actions(t_philosophers *philo)
 	pthread_t	thread;
 
 	pthread_create(&thread, NULL, check_dead, philo);
-	while ("the prophecy is true")
+	while ("The prophecy is true")
 	{
 		philo_take_fork(philo);
 		philo_take_fork(philo);
@@ -69,28 +69,28 @@ void	*check_dead(void *data)
 	t_philosophers	*philo;
 
 	philo = data;
-	while ("the prophecy is true")
+	while ("The prophecy is true")
 	{
 		if ((philo->last_eat + philo->info->die_time) < get_time_in_ms())
 		{
-			//philo_display_actio(philo, "died"); DEFINE
+			philo_display_action(philo, DIE);
 			exit(EXIT_FAILURE);
 		}
 		usleep(1000);
 	}
-	return ((void *)0); //NULL
+	return ((void *)0);
 }
 
 void	free_all(t_information *info)
 {
-	int	;
 	int	idx;
+	int	status;
 
-	idx = 0;//
-	while (idx < info->nbr_philo)
+	idx = 0; //
+	while (idx++ < info->nbr_philo) //
 	{
-		//waitpid(-1, &, 0);
-		if (&&&& != 0)
+		waitpid(-1, &status, 0);
+		if (status != 0)
 		{
 			idx = 0;
 			while (idx < info->nbr_philo)

@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 23:12:11 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/09/03 15:21:43 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/09/05 15:01:43 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_atoi(char *str)
 	while (str[index] == ' ' || (str[index] >= '\t' && str[index] <= '\r'))
 		index++;
 	if (str[index] == '-')
-		//print_error_msg(ERROR_NEGATIVE_ARG);
+		print_error_msg(ERROR_NEGATIVE_ARG);
 	else if (str[index] == '+')
 		index++;
 	while (str[index] != '\0' && (str[index] >= '0' && str[index] <= '9'))
@@ -34,6 +34,22 @@ int	ft_atoi(char *str)
 		index++;
 	}
 	return (result * sign);
+}
+
+void	ft_bzero(void *s, size_t n)
+{
+	size_t			idx;
+	char			*str;
+
+	if (!s)
+		return ;
+	idx = 0;
+	str = (char *)s;
+	while (idx < n)
+	{
+		str[idx] = 0;
+		idx++;
+	}
 }
 
 void	*ft_calloc(size_t nmemb, size_t size)
@@ -53,59 +69,18 @@ long long	get_time_in_ms(void)
 {
 	struct timeval	current_time;
 
-	//check
+	/* check
 	if (gettimeofday(&current_time, NULL) == -1)
 		return (-1);
+	*/
+	gettimeofday(&current_time, NULL);
 	return ((current_time.tv_sec * 1000) + (current_time.tv_usec / 1000));
 }
-
-/*
-long long	get_time_in_ms(void)
-{
-	struct timeval	current_time;
-
-	gettimeofday(&current_time, NULL);
-	return (current_time.tv_sec * 1000 + current_time.tv_usec / 1000);
-}
-*/
 
 long long	current_time(t_philosophers *philo)
 {
 	long long	time;
 
-	time = get_time_in_ms() - philo->info->creation_time;
+	time = (get_time_in_ms() - philo->info->creation_time);
 	return (time);
 }
-
-void	philo_display_actio(t_philosophers *philo, char *message)
-{
-	if (!philo->die)
-		printf("%lli\t%i\t%s\n", current_time(philo), philo->id + 1, message);
-}
-
-/*
-void	philo_display(t_information *info, int id, char *message)	//name
-{
-	long long	now;
-
-	now = get_time_in_ms();
-	/*
-	// not that important ?
-	if (now == -1)
-		print_error_msg(ERROR_TIME ?);
-		// malloc no free leak fct with info philo to free
-	pthread_mutex_lock(&(info->lock));
-	if (!(info->finish))
-	{
-		printf("%s", COLOR_ORANGE);
-		printf("%lld ", (now - info->creation_time));
-		printf("%s", NO_COLOR);
-		printf("%s", COLOR_LIGHT_CYAN);
-		printf("%d ", id + 1);
-		printf("%s", NO_COLOR);
-		printf("%s\n", message);
-	}
-	pthread_mutex_unlock(&(info->lock));
-}
-
-*/

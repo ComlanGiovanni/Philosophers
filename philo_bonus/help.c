@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 14:36:06 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/09/03 15:36:21 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/09/05 15:01:56 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,29 @@ void	print_usage(void)
 	printf(" %s\n", ARGC_TIMES_EAT);
 	printf("%s", NO_COLOR);
 	exit(EXIT_FAILURE);
+}
+
+void	philo_display_action(t_philosophers *philo, char *message)
+{
+	if (!philo->die)
+	{
+		printf("%s", COLOR_ORANGE);
+		printf("%lli ", current_time(philo));
+		printf("%s", NO_COLOR);
+		printf("%s", COLOR_LIGHT_CYAN);
+		printf("%d ", (philo->id + 1));
+		printf("%s", NO_COLOR);
+		printf("%s\n", message);
+	}
+	//printf("%lli\t%i\t%s\n", current_time(philo), (philo->id + 1), message);
+}
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	idx;
+
+	idx = 0;
+	while ((s1[idx] == s2[idx]) && (s1[idx] != '\0' && s2[idx] != '\0'))
+		idx++;
+	return (s1[idx] - s2[idx]);
 }

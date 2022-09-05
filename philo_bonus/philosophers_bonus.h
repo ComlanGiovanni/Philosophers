@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:54:45 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/09/03 15:36:44 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/09/05 15:01:35 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <pthread.h>
 # include <sys/time.h>
 # include <semaphore.h>
+# include <stddef.h> // size_t
 
 // check and add all fct in front in philo .h too
 # include <string.h>
@@ -59,11 +60,10 @@
 # define ERROR_NBR_INF_0	"should be > 0"
 
 //delete
-# define ERROR_MUTEX_LOCK	"pthread_mutex_init (info->lock) fail !"
-# define ERROR_MALLOC_FORK	"malloc pthread_mutex_t *forks fail !"
-# define ERROR_MUTEX_FORK	"pthread_mutex_init (info->fork) fail !"
-# define ERROR_MALLOC_PHILO	"malloc philosophers fail !"
-# define ERROR_START_PHILO	"pthread_create Philosophers fail !"
+# define ERROR_CALLOC_INFO	"ft_calloc t_information fail !"
+# define ERROR_CALLOC_PHILO	"ft_calloc t_philosopher fail !"
+# define ERROR_CALLOC_ID	"ft_calloc id tab table fail !"
+# define ERROR_SEMAPHORE	"sem_open fail !"
 
 # define ERROR_NEGATIVE_ARG	"Negative number found in argument !"
 # define TAKE_FORK			"has taken a fork"
@@ -101,23 +101,33 @@ typedef struct s_info
 }				t_information;
 
 //	action_bonus.c
-void	philo_take_fork(t_philosophers *philo);
-void	philo_eating(t_philosophers *philo);
-void	philo_put_down_forks(t_philosophers *philo);
-void	philo_sleep_and_think(t_philosophers *philo);
+void		philo_take_fork(t_philosophers *philo);
+void		philo_eating(t_philosophers *philo);
+void		philo_put_down_forks(t_philosophers *philo);
+void		philo_sleep_and_think(t_philosophers *philo);
 
 //	initialisation_bonus.c
-void	init_info_with_arg(t_information *info, int argc, char **argv);
+void		init_info_with_arg(t_information *info, int argc, char **argv);
+void		init_semaphore(t_information *info);
 
-//	threads_bonus.c
-
+//	philosophers_bonus.c
+void		start_philo(t_information *info);
+void		init_philo_info(t_philosophers *philo, t_information *info);
+void		philo_actions(t_philosophers *philo);
+void		*check_dead(void *data);
+void		free_all(t_information *info);
 
 //	utilities_bonus.c
-int	ft_atoi(char *str)
-void	*ft_calloc(size_t nmemb, size_t size);
+int			ft_atoi(char *str);
+void		ft_bzero(void *s, size_t n);
+void		*ft_calloc(size_t nmemb, size_t size);
+long long	get_time_in_ms(void);
+long long	current_time(t_philosophers *philo);
 
 //	help.c
 void		print_error_msg(char *message);
 void		print_usage(void);
+void		philo_display_action(t_philosophers *philo, char *message);
+int			ft_strcmp(char *s1, char *s2);
 
 #endif
