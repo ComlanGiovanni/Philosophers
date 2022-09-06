@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 22:55:55 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/09/06 14:37:35 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/09/06 16:04:38 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@
  * the usage of the progam, we set the memory of info at 0
  * 
  * then we collect the info put int the command line
+ * 
+ * // die 				./philo 1 800 200 200
+ * // no die			./philo 5 800 200 200
+ * // only eat 7 times 	./philo 5 800 200 200 7
+ * // no die 			./philo 4 410 200 200
+ * // one die 			./philo 4 310 200 100
  * 
  * 
  * @param argc 
