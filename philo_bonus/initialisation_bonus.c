@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 23:17:20 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/09/05 14:35:27 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/09/06 16:26:30 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,8 @@ void	init_info_with_arg(t_information *info, int argc, char **argv)
 
 void	init_semaphore(t_information *info)
 {
-	// sem
 	info->forks = sem_open("/my_sem", O_CREAT | O_EXCL, 0644,
 			info->nbr_philo);
 	if (info->forks == SEM_FAILED || sem_unlink("/my_sem"))
 		print_error_msg(ERROR_SEMAPHORE);
-	//return (EXIT_SUCCESS);
 }
-
-/*
-0 --> no access to file
-6 --> read/write permisson for the user
-4 --> read only for the group and others
-*/

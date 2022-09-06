@@ -6,12 +6,22 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 14:36:06 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/09/05 15:01:56 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/09/06 16:27:17 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers_bonus.h"
 
+/**
+ * @brief 
+ * 
+ * We print any given error message define in philosopher.h or not and exit
+ * with EXIT_FAILLURE code, we check with ft_strcmp for a specific error message
+ * to display with some color for better display, check the define int the .h
+ * for the formating logic error the problem then error msg
+ * 
+ * @param message 
+ */
 void	print_error_msg(char *message)
 {
 	printf("❌ %s ", ERROR_MSG);
@@ -37,6 +47,12 @@ void	print_error_msg(char *message)
 	exit(EXIT_FAILURE);
 }
 
+/**
+ * @brief 
+ * 
+ * we simply print with some color the usage of the program
+ * 
+ */
 void	print_usage(void)
 {
 	printf("📚  %s", USAGE);
@@ -73,9 +89,20 @@ void	philo_display_action(t_philosophers *philo, char *message)
 		printf("%s", NO_COLOR);
 		printf("%s\n", message);
 	}
-	//printf("%lli\t%i\t%s\n", current_time(philo), (philo->id + 1), message);
 }
 
+/**
+ * @brief 
+ * 
+ * on of the famous ft fct its a simple comparator of string
+ * if we found a differente char in s1 s2 we stop and return the define,
+ * we use it to compare the message with a define error message to diplay
+ * some message with color
+ * 
+ * @param s1 
+ * @param s2 
+ * @return int 
+ */
 int	ft_strcmp(char *s1, char *s2)
 {
 	int	idx;

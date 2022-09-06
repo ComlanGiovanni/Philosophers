@@ -6,12 +6,24 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 23:12:11 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/09/05 15:01:43 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/09/06 16:27:32 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers_bonus.h"
 
+/**
+ * @brief 
+ * 
+ * The famous ft_atoi done again again and again in picsine exam in project
+ * we dont explain that long we parse a string (str) and look for a -
+ * if we found it we display an error message and quit
+ * if we found a digit we store it an mutiply by the sign bruh its useless here
+ * because we quit if there is negative sign ?? but its work so chill
+ * 
+ * @param str 
+ * @return int 
+ */
 int	ft_atoi(char *str)
 {
 	int	index;
@@ -65,14 +77,22 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	return ((char *)dest);
 }
 
+/**
+ * @brief Get the time in ms object
+ * 
+ *  The struct timeval contain tv_sec (secondes) and tv_usec (microsecondes)
+ * 	 give the time since 1 janv 197 in sec en microsec
+ * 		The use of the timezone structure is obsolete; the tz argument 
+ * 			should normally be specified as NULL. 
+ * 
+ * 	1s -> 1000 Millisecondes -> 1000 000 microsecondes
+ * 	
+ * @return long long 
+ */
 long long	get_time_in_ms(void)
 {
 	struct timeval	current_time;
 
-	/* check
-	if (gettimeofday(&current_time, NULL) == -1)
-		return (-1);
-	*/
 	gettimeofday(&current_time, NULL);
 	return ((current_time.tv_sec * 1000) + (current_time.tv_usec / 1000));
 }

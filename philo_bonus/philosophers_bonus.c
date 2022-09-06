@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 23:17:25 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/09/06 12:02:23 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/09/06 16:10:46 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	init_philo_info(t_philosophers *philo, t_information *info)
 	philo->info = info;
 	philo->eat_count = 0;
 	philo->last_eat = info->creation_time;
-	philo->die = FALSE; // make a type def ball TRUE FALSE
+	philo->die = FALSE;
 }
 
 void	philo_actions(t_philosophers *philo)
@@ -86,8 +86,8 @@ void	free_all(t_information *info)
 	int	idx;
 	int	status;
 
-	idx = -1; //
-	while (++idx < info->nbr_philo) //
+	idx = -1;
+	while (++idx < info->nbr_philo)
 	{
 		waitpid(-1, &status, 0);
 		if (status != 0)

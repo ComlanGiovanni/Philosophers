@@ -6,19 +6,19 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 22:55:45 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/09/06 13:19:10 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/09/06 16:22:49 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILOSOPHERS_H
 # define PHILOSOPHERS_H
 
-# include <stdio.h>
-# include <string.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <pthread.h>
-# include <sys/time.h> //gettimeofday
+# include <stdio.h> // printf ...
+# include <string.h> // memset ...
+# include <unistd.h> //usleep ...
+# include <stdlib.h> // malloc EXIT_* ...
+# include <pthread.h> // pthread_* ...
+# include <sys/time.h> // gettimeofday ...
 
 /*Color*/
 
@@ -63,6 +63,9 @@
 # define THINK				"is thinking"
 # define DIE				"died"
 
+
+/* Philo info*/
+
 typedef struct s_philosophers
 {
 	int					id;
@@ -73,6 +76,8 @@ typedef struct s_philosophers
 	long long			last_eat;
 	int					eat_count;
 }					t_philosophers;
+
+/* Dinner info*/
 
 typedef struct s_info
 {
@@ -89,28 +94,33 @@ typedef struct s_info
 }				t_information;
 
 //	action.c
+
 void		philo_eat_with_two_fork(t_philosophers *philo, t_information *info);
 void		philo_display(t_information *info, int id, char *message);
 void		philo_sleep_and_think(t_philosophers *philo, t_information *info);
 
 //	initialisation.c
+
 void		init_info_with_arg(t_information *info, int argc, char **argv);
 void		init_mutex_forks(t_information *info);
 void		init_philo_info(t_philosophers **philo, t_information *info);
 
 //	threads.c
+
 void		start_philo_threads(t_philosophers *philo, t_information *info);
 void		*philo_routine(void *data);
 void		check_dead_or_finish(t_philosophers *philo, t_information *info);
 void		free_all_thread(t_philosophers *philo, t_information *info);
 
 //	utilities.c
+
 int			ft_atoi(char *str);
 int			ft_strcmp(char *s1, char *s2);
 long long	get_time_in_ms(void);
 void		pause_time(t_information *info, long long wait_time);
 
 //	help.c
+
 void		print_error_msg(char *message);
 void		print_usage(void);
 
