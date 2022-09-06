@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 22:55:45 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/09/03 14:19:20 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/09/06 13:19:10 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <pthread.h>
-# include <sys/time.h>
+# include <sys/time.h> //gettimeofday
 
 /*Color*/
 

@@ -6,15 +6,13 @@
 #    By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/24 15:32:24 by gcomlan           #+#    #+#              #
-#    Updated: 2022/09/03 13:58:37 by gcomlan          ###   ########.fr        #
+#    Updated: 2022/09/06 15:59:46 by gcomlan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ------------------------------ VARIABLES ------------------------------
 
-GCC			= gcc -Wall -Wextra -Werror -g
-
-#GCC		+= -fsanitize=address
+GCC			= gcc -Wall -Wextra -Werror -pthread
 
 NAME		=	philo
 

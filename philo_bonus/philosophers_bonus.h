@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:54:45 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/09/05 15:01:35 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/09/06 11:53:20 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@
 # include <sys/time.h>
 # include <semaphore.h>
 # include <stddef.h> // size_t
+# include <sys/types.h> // waitpid
+# include <sys/wait.h> // waitpid
+
+# include <sys/stat.h> // O_CREAT O_EXCL
+# include <fcntl.h>
 
 // check and add all fct in front in philo .h too
 # include <string.h>

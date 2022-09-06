@@ -6,12 +6,27 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 22:55:58 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/09/03 14:17:40 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/09/06 14:36:07 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
+/**
+ * @brief 
+ * 
+ * we recieve all the info of the main argc, argv with the info struct to put
+ * all the argument in it, the creation time is store with the fonction
+ * get_time_in_ms because we need it to display the time for each state
+ * (take fork eat sleep die), nbr_philo die_time eat_time sleep_time are check
+ * with a tiny modify ft_atoi we check if there no 0 int nbr_phio or nbr_to_eat
+ * because we need to have at least 1 philosophers to launch the program
+ * and we need to eat at least one time to start all the program mecanic
+ * 
+ * @param info 
+ * @param argc 
+ * @param argv 
+ */
 void	init_info_with_arg(t_information *info, int argc, char **argv)
 {
 	info->creation_time = get_time_in_ms();
@@ -29,6 +44,18 @@ void	init_info_with_arg(t_information *info, int argc, char **argv)
 	}
 }
 
+/**
+ * @brief 
+ * 
+ * Here we init a mutex for every for so we loop by the nbr_of_philo
+ * because in the game rule every philosospher bring 
+ * only one fork for the diner
+ * 
+ * we check if every mutex int and and malloc did not fail, if not, 
+ * we exit the progam with a exit failure code and a define error msghy
+ * 
+ * @param info 
+ */
 void	init_mutex_forks(t_information *info)
 {
 	int	index;
@@ -48,6 +75,26 @@ void	init_mutex_forks(t_information *info)
 	}
 }
 
+/**
+ * @brief
+ * 
+ * Here we init all the info needed for each philosopher
+ * if the malloc fail we print a proper error message define in .h
+ * 
+ * for each philosopher we set and id a left and right fork a eat_count 
+ * for the last param (number_of_times_each_philosopher_must_eat)
+ * and the time stamp of the least time he eat for thr display
+ * 
+ * 			   so the fork of the philo 0 is index(0)
+ * 	 * 1 * 	  but the right on is the fork for the last philo
+ *  0     2	 so index(3)			((index + 1) % info->nbr_philo)
+ *   * 3 *	
+ * 			example for 5 philo
+ * 				 index = 1  so fork left it 1 and right one is (1 + 1 % 5) = 2
+ * 
+ * @param philo 
+ * @param info 
+ */
 void	init_philo_info(t_philosophers **philo, t_information *info)
 {
 	int	index;

@@ -6,12 +6,24 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 22:55:53 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/09/03 15:39:49 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/09/06 15:10:20 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
+/**
+ * @brief 
+ * 
+ * The famous ft_atoi done again again and again in picsine exam in project
+ * we dont explain that long we parse a string (str) and look for a -
+ * if we found it we display an error message and quit
+ * if we found a digit we store it an mutiply by the sign bruh its useless here
+ * because we quit if there is negative sign ?? but its work so chill
+ * 
+ * @param str 
+ * @return int 
+ */
 int	ft_atoi(char *str)
 {
 	int	index;
@@ -36,6 +48,18 @@ int	ft_atoi(char *str)
 	return (result * sign);
 }
 
+/**
+ * @brief 
+ * 
+ * on of the famous ft fct its a simple comparator of string
+ * if we found a differente char in s1 s2 we stop and return the define,
+ * we use it to compare the message with a define error message to diplay
+ * some message with color
+ * 
+ * @param s1 
+ * @param s2 
+ * @return int 
+ */
 int	ft_strcmp(char *s1, char *s2)
 {
 	int	idx;
@@ -46,26 +70,34 @@ int	ft_strcmp(char *s1, char *s2)
 	return (s1[idx] - s2[idx]);
 }
 
+/**
+ * @brief Get the time in ms object
+ * 
+ *  The struct timeval contain tv_sec (secondes) and tv_usec (microsecondes)
+ * 	 give the time since 1 janv 197 in sec en microsec
+ * 		The use of the timezone structure is obsolete; the tz argument 
+ * 			should normally be specified as NULL. 
+ * 
+ * 	1s -> 1000 Millisecondes -> 1000 000 microsecondes
+ * 	
+ * @return long long 
+ */
 long long	get_time_in_ms(void)
 {
 	struct timeval	current_time;
 
-	//check
-	if (gettimeofday(&current_time, NULL) == -1)
-		return (-1);
+	gettimeofday(&current_time, NULL);
 	return ((current_time.tv_sec * 1000) + (current_time.tv_usec / 1000));
 }
 
-/*
-long long	current_time(t_philosophers *philo)
-{
-	long long	time;
-
-	time = get_time_in_ms() - philo->info->creation_time;
-	return (time);
-}
-*/
-
+/**
+ * @brief 
+ * 
+ * we wait until the wait_time has pass
+ * 
+ * @param info 
+ * @param wait_time 
+ */
 void	pause_time(t_information *info, long long wait_time)
 {
 	long long	now;
@@ -77,6 +109,6 @@ void	pause_time(t_information *info, long long wait_time)
 		now = get_time_in_ms();
 		if ((now - start) >= wait_time)
 			break ;
-		usleep(10); // check
+		usleep(10);
 	}
 }

@@ -6,12 +6,22 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 13:55:25 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/09/03 14:06:23 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/09/06 15:23:44 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
+/**
+ * @brief 
+ * 
+ * We print any given error message define in philosopher.h or not and exit
+ * with EXIT_FAILLURE code, we check with ft_strcmp for a specific error message
+ * to display with some color for better display, check the define int the .h
+ * for the formating logic error the problem then error msg
+ * 
+ * @param message 
+ */
 void	print_error_msg(char *message)
 {
 	printf("❌ %s ", ERROR_MSG);
@@ -37,6 +47,12 @@ void	print_error_msg(char *message)
 	exit(EXIT_FAILURE);
 }
 
+/**
+ * @brief 
+ * 
+ * we simply print with some color the usage of the program
+ * 
+ */
 void	print_usage(void)
 {
 	printf("📚  %s", USAGE);
