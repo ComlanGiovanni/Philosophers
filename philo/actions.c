@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 14:43:27 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/09/06 15:44:49 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/09/06 16:00:50 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,8 @@ void	philo_display(t_information *info, int id, char *message)
 /**
  * @brief 
  * 
- * we simply display the sleep and think message while waiting the time of the sleep
+ * we simply display the sleep and think 
+ * message while waiting the time of the sleep
  * 
  * @param philo 
  * @param info 

@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 14:27:05 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/09/06 15:21:37 by gcomlan          ###   ########.fr       */
+/*   Updated: 2022/09/06 16:01:10 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ void	*philo_routine(void *data)
 
 	philo = data;
 	info = philo->info;
-
 	if (philo->id % 2)
 		usleep(1000);
 	else
