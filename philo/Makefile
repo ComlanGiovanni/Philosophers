@@ -6,7 +6,7 @@
 #    By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/24 15:32:24 by gcomlan           #+#    #+#              #
-#    Updated: 2022/09/06 15:59:46 by gcomlan          ###   ########.fr        #
+#    Updated: 2022/09/07 12:32:18 by gcomlan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,7 +70,7 @@ NEW_LINE	=	echo "\n"
 all : $(NAME)
 
 $(NAME): $(OBJ)
-	@$(SO_LONG_COMP)
+	@$(PHILO_COMP)
 	$(GCC) -o $(NAME) $(OBJ)
 	@$(NEW_LINE)
 	@echo "$$ASCII_MANDATORY"

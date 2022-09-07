@@ -6,7 +6,7 @@
 #    By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/24 15:32:24 by gcomlan           #+#    #+#              #
-#    Updated: 2022/09/06 12:58:04 by gcomlan          ###   ########.fr        #
+#    Updated: 2022/09/07 12:32:59 by gcomlan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,9 +55,9 @@ NO_COLOR		=	\033[0m
 
 COMP_START	=	echo "\n🚧 $(PURPLE)Make: $(NO_COLOR)Starting the compilation...\n"
 
-PHILO_COMP	=	echo "\n🚧 $(YELLOW) $(NAME): $(NO_COLOR)Starting the compilation...\n"
+PHILO_BONUS_COMP	=	echo "\n🚧 $(YELLOW) $(NAME): $(NO_COLOR)Starting the compilation...\n"
 
-PHILO_READY	=	echo "\n🧮 $(BLUE) $(NAME) $(NO_COLOR)ready!\n"
+PHILO_BONUS_READY	=	echo "\n🧮 $(BLUE) $(NAME) $(NO_COLOR)ready!\n"
 
 CLEANED		=	echo "\n💧 $(GREEN)Clean: $(NO_COLOR)Removed all the \".o\" files 🗑\\n"
 
@@ -70,11 +70,11 @@ NEW_LINE	=	echo "\n"
 all : $(NAME)
 
 $(NAME): $(OBJ)
-	@$(SO_LONG_COMP)
+	@$(PHILO_BONUS_COMP)
 	$(GCC) -o $(NAME) $(OBJ)
 	@$(NEW_LINE)
 	@echo "$$ASCII_MANDATORY"
-	@$(PHILO_READY)
+	@$(PHILO_BONUS_READY)
 
 clean :
 	$(RM) *.o
@@ -99,7 +99,7 @@ re : fclean all
 info: ascii
 
 
- ##### rotate the phi
+##### rotate the phi
 define ASCII_MANDATORY
 $(RED)     PH	  $(NO_COLOR)
 $(RED)     HP	  $(NO_COLOR)
