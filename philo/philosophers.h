@@ -6,7 +6,7 @@
 /*   By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 22:55:45 by gcomlan           #+#    #+#             */
-/*   Updated: 2022/09/06 16:22:49 by gcomlan          ###   ########.fr       */
+/*   Updated: 2023/06/23 12:15:24 by gcomlan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@
 # define SLEEP				"is sleeping"
 # define THINK				"is thinking"
 # define DIE				"died"
-
 
 /* Philo info*/
 

@@ -6,13 +6,15 @@
 #    By: gcomlan <gcomlan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/24 15:32:24 by gcomlan           #+#    #+#              #
-#    Updated: 2022/09/07 12:32:18 by gcomlan          ###   ########.fr        #
+#    Updated: 2023/06/23 12:13:52 by gcomlan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ------------------------------ VARIABLES ------------------------------
 
-GCC			= gcc -Wall -Wextra -Werror -pthread
+GCC			= gcc -Wall -Wextra -Werror -g -pthread
+
+#GCC		+= -fsanitize=address
 
 NAME		=	philo
 
@@ -59,6 +61,8 @@ PHILO_COMP	=	echo "\n🚧 $(YELLOW) $(NAME): $(NO_COLOR)Starting the compilation
 
 PHILO_READY	=	echo "\n🧮 $(BLUE) $(NAME) $(NO_COLOR)ready!\n"
 
+NORM_CHECK 	=	echo "\n✅ $(ORANGE) Norminette Good ! $(NO_COLOR)\n" 
+
 CLEANED		=	echo "\n💧 $(GREEN)Clean: $(NO_COLOR)Removed all the \".o\" files 🗑\\n"
 
 FCLEANED	=	echo "\n🧼 $(GREEN)Fclean: $(NO_COLOR)Removed the executables 🗑\\n"
@@ -75,6 +79,10 @@ $(NAME): $(OBJ)
 	@$(NEW_LINE)
 	@echo "$$ASCII_MANDATORY"
 	@$(PHILO_READY)
+
+norm:
+	@norminette
+	@$(NORM_CHECK)
 
 clean :
 	$(RM) *.o
@@ -112,4 +120,4 @@ endef
 export ASCII_MANDATORY
 
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re bonus norm
